@@ -1,11 +1,18 @@
-<div class="container">
+<div>
   <h1>Your password tester</h1>
   <input
-    [type]="isPasswordVisible ? text : password"
+    [type]="isPasswordVisible ? 'text' : 'password'"
     placeholder="Enter your password"
+    name="password"
+    (input)="onInput($event)"
   />
-
-  <div class=""></div>
-  <div class=""></div>
-  <div class=""></div>
+  <button class="visibility-btn" type="button" (click)="onToggleVisibility()">
+    {{ isPasswordVisible ? "Hide" : "Show" }}
+  </button>
+  <hr />
+  <section class="notification-cont">
+    <div class="notification">easy</div>
+    <div class="notification">medium</div>
+    <div class="notification">strong</div>
+  </section>
 </div>
