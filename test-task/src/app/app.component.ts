@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -18,10 +19,7 @@ export class AppComponent {
   
   onInput(event: Event) {
    const input = event.target as HTMLInputElement;
-   const passwordEasy = document.getElementById('p-easy');
-   const passwordMedium = document.getElementById('p-medium');
-   const passwordStrong= document.getElementById('p-strong');
-   
-   console.log(input.value);
+  //  const hasLetters = /[a-zA-Z]/.test(input)
+   console.log(this.password.length);
   }
 }

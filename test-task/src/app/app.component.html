@@ -3,7 +3,7 @@
   <input
     [type]="isPasswordVisible ? 'text' : 'password'"
     placeholder="Enter your password"
-    name="password"
+    [(ngModel)]="password"
     (input)="onInput($event)"
   />
   <button class="visibility-btn" type="button" (click)="onToggleVisibility()">
