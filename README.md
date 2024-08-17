@@ -1,7 +1,7 @@
 # test-task
 
 Task:
-Create applications to test password strength.
+Create application to test password strength.
 
 The essence of the assignment:
 Create a field for entering a password, under the field add 3 sections which will show the strength of the password;
