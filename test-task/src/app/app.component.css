@@ -37,3 +37,6 @@ input {
     background-color: green;
 }
 
+div {
+    transition: background-color 250ms ease-in-out;
+}
