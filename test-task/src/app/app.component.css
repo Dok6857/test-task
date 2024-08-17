@@ -13,17 +13,27 @@ input {
     border-radius: 5px;
 }
 
-.notification {
-    width: 100px;
-    background-color: rgb(169, 166, 166);
-    padding: 5px;
-}
 
 .notification-cont {
     display: grid;
     gap: 5px;
+    width: 100px;
+    padding: 5px;
 }
 
-.notification .easy {
+.default {
+    background-color: rgb(169, 166, 166);
+}
+
+.easy {
     background-color: red;
 }
+
+.medium {
+    background-color: yellow;
+}
+
+.strong {
+    background-color: green;
+}
+
