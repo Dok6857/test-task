@@ -13,18 +13,22 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   password: string = '';
   isPasswordVisible = false;
+  arrayOfClasses: string[] = ['default', '', '', ''] ;
 
   onToggleVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
-  onInput(event: Event) {
-    const input = event.target as HTMLInputElement;
+  onInput() {
     const hasLetters = /[a-zA-Z]/.test(this.password);
     const hasNumbers = /[0-9]/.test(this.password);
     const hasSymbols = /[^a-zA-Z0-9]/.test(this.password);
 
-    
+    if (this.password.length > 0 && this.password.length < 8) {
+      this.arrayOfClasses = ['default', 'easy', 'easy', 'easy']
+    } else if (this.password) {
+
+    }
 
     console.log(this.password.length);
   }
