@@ -13,7 +13,7 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   password: string = '';
   isPasswordVisible = false;
-  arrayOfClasses: string[] = ['default', '', '', ''] ;
+  arrayOfClasses: string[] = ['default', '', '', ''];
 
   onToggleVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
@@ -25,11 +25,17 @@ export class AppComponent {
     const hasSymbols = /[^a-zA-Z0-9]/.test(this.password);
 
     if (this.password.length > 0 && this.password.length < 8) {
-      this.arrayOfClasses = ['default', 'easy', 'easy', 'easy']
-    } else if (this.password) {
-
+      this.arrayOfClasses = ['default', 'easy', 'easy', 'easy'];
+    } else if (hasLetters && hasNumbers && hasSymbols) {
+      this.arrayOfClasses = ['default', 'strong', 'strong', 'strong'];
+    } else if (
+      (hasLetters && hasNumbers) ||
+      (hasLetters && hasSymbols) ||
+      (hasNumbers && hasSymbols)
+    ) {
+      this.arrayOfClasses = ['default', 'medium', 'medium', 'default'];
+    } else {
+      this.arrayOfClasses = ['default', 'easy', 'default', 'default'];
     }
-
-    console.log(this.password.length);
   }
 }
