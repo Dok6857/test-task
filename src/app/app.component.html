@@ -1,27 +1,6 @@
-<!-- app.component.html -->
 <main>
   <h1>Your password tester</h1>
   <app-password-input (passwordChange)="onPasswordChange($event)"></app-password-input>
-  
   <hr />
-  <section class="notification-cont">
-     <div
-     [class.default]="passwordStrength[0] === 'default'"
-     [class.red]="passwordStrength[0] === 'red'"
-     [class.yellow]="passwordStrength[0] === 'yellow'"
-     [class.green]="passwordStrength[0] === 'green'"
-   >easy</div>
-   <div
-     [class.default]="passwordStrength[1] === 'default'"
-     [class.red]="passwordStrength[1] === 'red'"
-     [class.yellow]="passwordStrength[1] === 'yellow'"
-     [class.green]="passwordStrength[1] === 'green'"
-   >medium</div>
-   <div
-     [class.default]="passwordStrength[2] === 'default'"
-     [class.red]="passwordStrength[2] === 'red'"
-     [class.yellow]="passwordStrength[2] === 'yellow'"
-     [class.green]="passwordStrength[2] === 'green'"
-   >strong</div>
-  </section>
+  <app-password-bars [passwordStrength]="passwordStrength"></app-password-bars>
 </main>

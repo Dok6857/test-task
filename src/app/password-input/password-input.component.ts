@@ -1,5 +1,3 @@
-// password-input.component.ts
-
 import { Component, EventEmitter, forwardRef, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import {
