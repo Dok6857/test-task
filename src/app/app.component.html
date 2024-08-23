@@ -1,18 +1,6 @@
 <main>
   <h1>Your password tester</h1>
-  <input
-    [type]="isPasswordVisible ? 'text' : 'password'"
-    placeholder="Enter your password"
-    [(ngModel)]="password"
-    (input)="onInput()"
-  />
-  <button class="visibility-btn" type="button" (click)="onToggleVisibility()">
-    {{ isPasswordVisible ? "Hide" : "Show" }}
-  </button>
+  <app-password-input (passwordChange)="onPasswordChange($event)"></app-password-input>
   <hr />
-  <section class="notification-cont">
-    <div [ngClass]="[password.length === 0 ? arrayOfClasses[0] : arrayOfClasses[1]]">easy</div>
-    <div [ngClass]="[password.length === 0 ? arrayOfClasses[0] : arrayOfClasses[2]]">medium</div>
-    <div [ngClass]="[password.length === 0 ? arrayOfClasses[0] : arrayOfClasses[3]]">strong</div>
-  </section>
+  <app-password-bars [passwordStrength]="passwordStrength"></app-password-bars>
 </main>

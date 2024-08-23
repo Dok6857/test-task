@@ -13,30 +13,6 @@ input {
     border-radius: 5px;
 }
 
-
-.notification-cont {
-    display: grid;
-    gap: 5px;
-    width: 100px;
-    padding: 5px;
-}
-
-.default {
-    background-color: rgb(169, 166, 166);
-}
-
-.easy {
-    background-color: red;
-}
-
-.medium {
-    background-color: yellow;
-}
-
-.strong {
-    background-color: green;
-}
-
 div {
     transition: background-color 250ms ease-in-out;
 }
