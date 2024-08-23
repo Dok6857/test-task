@@ -1,42 +1,22 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+// app.component.ts
+import { Component, inject } from '@angular/core';
 import { PasswordInputComponent } from './password-input/password-input.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PasswordStrengthService } from './password-strength.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, PasswordInputComponent],
+  imports: [ReactiveFormsModule, PasswordInputComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  password: string = '';
-  isPasswordVisible = false;
-  arrayOfClasses: string[] = ['default', '', '', ''];
+  private passwordStrengthService = inject(PasswordStrengthService);
 
-  onToggleVisibility() {
-    this.isPasswordVisible = !this.isPasswordVisible;
-  }
+  passwordStrength: string[] = [];
 
-  onInput() {
-    const hasLetters = /[a-zA-Z]/.test(this.password);
-    const hasNumbers = /[0-9]/.test(this.password);
-    const hasSymbols = /[^a-zA-Z0-9]/.test(this.password);
-
-    if (this.password.length > 0 && this.password.length < 8) {
-      this.arrayOfClasses = ['default', 'easy', 'easy', 'easy'];
-    } else if (hasLetters && hasNumbers && hasSymbols) {
-      this.arrayOfClasses = ['default', 'strong', 'strong', 'strong'];
-    } else if (
-      (hasLetters && hasNumbers) ||
-      (hasLetters && hasSymbols) ||
-      (hasNumbers && hasSymbols)
-    ) {
-      this.arrayOfClasses = ['default', 'medium', 'medium', 'default'];
-    } else {
-      this.arrayOfClasses = ['default', 'easy', 'default', 'default'];
-    }
+  onPasswordChange(password: string) {
+    this.passwordStrength = this.passwordStrengthService.getPasswordStrength(password);
   }
 }

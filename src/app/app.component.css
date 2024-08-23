@@ -25,15 +25,15 @@ input {
     background-color: rgb(169, 166, 166);
 }
 
-.easy {
+.red {
     background-color: red;
 }
 
-.medium {
+.yellow {
     background-color: yellow;
 }
 
-.strong {
+.green {
     background-color: green;
 }
 
